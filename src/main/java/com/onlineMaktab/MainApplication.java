@@ -36,6 +36,7 @@ showRealMenu(context,connection);
                         break;
                     }
                     case 3: {
+                        //this is for see all products
                         inWhile = false;
 
                         break;

@@ -12,6 +12,20 @@ public class User extends Base{
     private String streetName;
     private String postalCode;
 
+    public User(int id, String name, String family, String username, String password, String phoneNumber, String email, String province, String city, String streetName, String postalCode) {
+        super(id);
+        this.name = name;
+        this.family = family;
+        this.username = username;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.province = province;
+        this.city = city;
+        this.streetName = streetName;
+        this.postalCode = postalCode;
+    }
+
     public User(String name, String family, String username, String password, String phoneNumber, String email, String province, String city, String streetName, String postalCode) {
         this.name = name;
         this.family = family;

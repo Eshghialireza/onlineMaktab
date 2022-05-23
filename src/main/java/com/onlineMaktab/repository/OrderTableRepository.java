@@ -1,4 +1,5 @@
 package com.onlineMaktab.repository;
 
-public class orderRepository {
+public class OrderTableRepository {
+
 }

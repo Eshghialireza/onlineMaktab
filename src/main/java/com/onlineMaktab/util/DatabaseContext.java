@@ -1,6 +1,6 @@
 package com.onlineMaktab.util;
 
-import com.onlineMaktab.domain.User;
+import com.onlineMaktab.repository.OrderRepository;
 import com.onlineMaktab.repository.ProductRepository;
 import com.onlineMaktab.repository.UserRepository;
 
@@ -16,6 +16,7 @@ public class DatabaseContext {
     private UserRepository userRepository=null;
     private ProductRepository productRepository=null;
     private Logic logic=null;
+    private OrderRepository orderRepository=null;
 
 
 
@@ -23,8 +24,11 @@ public class DatabaseContext {
 
 
 
-
-
+    public OrderRepository getOrderRepository() {
+        if(orderRepository==null)
+            this.orderRepository=new OrderRepository();
+        return orderRepository;
+    }
 
     public Logic getLogic() {
         if(logic==null)

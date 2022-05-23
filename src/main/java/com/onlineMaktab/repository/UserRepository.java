@@ -49,6 +49,7 @@ public class UserRepository {
             preparedStatement.setString(10,user.getPostalCode());
             preparedStatement.executeUpdate();
             context.getMenuTexts().showSuccessfullySignUp();
+            loginAfterSignUp(context,connection,user.getUsername(),user.getPassword());
     }
 // we have two types of login and this a simple login
     public void loggin(DatabaseContext context, Connection connection) throws SQLException {
@@ -79,10 +80,13 @@ public class UserRepository {
             context.getCurrentUser().setCurrentUser(user);
             count++;
         }
-        if(count>0)
+        if(count>0) {
             context.getMenuTexts().showSuccessfullySignIn();
+            context.getLogic().loginMenu(context, connection);
+        }
         else
             context.getMenuTexts().showWrongPass();
+
     }
     //this is the login after sign up
     public void loginAfterSignUp(DatabaseContext context, Connection connection,String username,String password) throws SQLException {
@@ -110,8 +114,10 @@ public class UserRepository {
             context.getCurrentUser().setCurrentUser(user);
             count++;
         }
-        if(count>0)
+        if(count>0) {
             context.getMenuTexts().showSuccessfullySignIn();
+            context.getLogic().loginMenu(context, connection);
+        }
         else
             context.getMenuTexts().showWrongPass();
     }

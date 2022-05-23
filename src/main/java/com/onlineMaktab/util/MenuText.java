@@ -14,7 +14,7 @@ public class MenuText {
         System.out.println("welcome to maktabshop.com");
         System.out.println("please choose a number :");
         System.out.println("1: see your order table");
-        System.out.println("2: signup");
+        System.out.println("2: go for shopping !:)");
         System.out.println("3: edit profile");
         System.out.println("4 : log out");
     }
@@ -71,5 +71,17 @@ public class MenuText {
 
     public void showWrongPass() {
         System.out.println("username or password is wrong");
+    }
+
+    public void showSelectId() {
+        System.out.println("enter id");
+    }
+
+    public void showZeroToExit() {
+        System.out.println("enter zero to exit");
+    }
+
+    public void showDone() {
+        System.out.println("done!");
     }
 }

@@ -50,7 +50,7 @@ public class UserRepository {
             preparedStatement.executeUpdate();
             context.getMenuTexts().showSuccessfullySignUp();
     }
-
+// we have two types of login and this a simple login
     public void loggin(DatabaseContext context, Connection connection) throws SQLException {
         int count=0;
         context.getMenuTexts().showEnterUsername();
@@ -84,6 +84,38 @@ public class UserRepository {
         else
             context.getMenuTexts().showWrongPass();
     }
+    //this is the login after sign up
+    public void loginAfterSignUp(DatabaseContext context, Connection connection,String username,String password) throws SQLException {
+        int count=0;
+        context.getMenuTexts().showEnterUsername();
+        String check ="select * from user where username=? and password=?";
+        PreparedStatement preparedStatement=connection.prepareStatement(check);
+        preparedStatement.setString(1,username);
+        preparedStatement.setString(2,password);
+        ResultSet resultSet= preparedStatement.executeQuery();
+        while (resultSet.next()){
+            User user=new User(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("family"),
+                    resultSet.getString("userName"),
+                    resultSet.getString("password"),
+                    resultSet.getString("phoneNumber"),
+                    resultSet.getString("email"),
+                    resultSet.getString("province"),
+                    resultSet.getString("city"),
+                    resultSet.getString("streetName"),
+                    resultSet.getString("postalCode")
+            );
+            context.getCurrentUser().setCurrentUser(user);
+            count++;
+        }
+        if(count>0)
+            context.getMenuTexts().showSuccessfullySignIn();
+        else
+            context.getMenuTexts().showWrongPass();
+    }
+
 
 
 

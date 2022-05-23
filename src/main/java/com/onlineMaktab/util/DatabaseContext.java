@@ -1,6 +1,7 @@
 package com.onlineMaktab.util;
 
 import com.onlineMaktab.domain.User;
+import com.onlineMaktab.repository.ProductRepository;
 import com.onlineMaktab.repository.UserRepository;
 
 import java.sql.SQLException;
@@ -13,6 +14,29 @@ public class DatabaseContext {
     private MenuText menuTexts=new MenuText();
     private CurrentUser currentUser=new CurrentUser();
     private UserRepository userRepository=null;
+    private ProductRepository productRepository=null;
+    private Logic logic=null;
+
+
+
+
+
+
+
+
+
+
+    public Logic getLogic() {
+        if(logic==null)
+            this.logic=new Logic();
+        return logic;
+    }
+
+    public ProductRepository getProductRepository() {
+        if(productRepository==null)
+            this.productRepository=new ProductRepository();
+        return productRepository;
+    }
 
     public UserRepository getUserRepository() throws SQLException, ClassNotFoundException {
         if(userRepository==null)

@@ -30,24 +30,34 @@ public class Logic {
             context.getMenuTexts().showOrderTableFull();
         }
     }
-//see order tables menu
-    public void orderTableMenu(DatabaseContext context,Connection connection) throws SQLException {
+
+    //see order tables menu
+    public void orderTableMenu(DatabaseContext context, Connection connection) throws SQLException {
         context.getOrderRepository().showOrders(connection, context);
         context.getMenuTexts().showOrderTableMenu();
-        int userInput=context.getIntScanner().nextInt();
-        switch (userInput){
+        int userInput = context.getIntScanner().nextInt();
+        switch (userInput) {
             case 1:
-                context.getOrderRepository().updateQuantityAndPrice(context,connection);
+                context.getOrderRepository().updateQuantityAndPrice(context, connection);
                 break;
             case 2:
-
+                context.getOrderRepository().delete(context,connection);
                 break;
             case 3:
-
+                //show products
+                context.getProductRepository().showDetails(context, connection);
+                break;
+            case 4:
+                //confirm
+                context.getOrderRepository().confirm(context,connection);
+                break;
+            case 5:
+                //go back
+                //my message to you=this is the best part of coding
                 break;
             default:
                 context.getMenuTexts().showNumberIsWrong();
-                orderTableMenu(context,connection);
+                orderTableMenu(context, connection);
                 break;
         }
     }
@@ -58,7 +68,7 @@ public class Logic {
         int userInput = context.getIntScanner().nextInt();
         switch (userInput) {
             case 1:
-                orderTableMenu(context,connection);
+                orderTableMenu(context, connection);
                 loginMenu(context, connection);
                 break;
             case 2:

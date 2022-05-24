@@ -28,7 +28,9 @@ public class MenuText {
         System.out.println(YELLOW +"choose a number");
         System.out.println("1 : edit quantity");
         System.out.println("2 : remove an order");
-        System.out.println("3 : confirm"+RESET);
+        System.out.println("3 : show products");
+        System.out.println("4 : confirm");
+        System.out.println("5 : go back!"+RESET);
 
     }
 
@@ -85,6 +87,13 @@ public class MenuText {
     public void showOrderTableFull() {
     System.out.println(RED+"you cant add new product because your order table is full"+RESET);
     }
+    public void showProductExist() {
+        System.out.println(RED+"the product you choose is exist in your order table"+RESET);
+    }
+    public void showLowQuantityOfAnProduct(int productId,String productName) {
+        System.out.println(RED+"low shop quantity of id :"+productId+" "+productName+RESET);
+    }
+
 
 
     public void showExitMessage() {
@@ -109,4 +118,12 @@ public class MenuText {
     public void showOrderUpdated() {
         System.out.println(BLUE+"your order table has updated"+RESET);
     }
+    public void showDeleteDone() {
+        System.out.println(BLUE+"a column deleted successfully"+RESET);
+    }
+    public void showOrderTableConfirmed() {
+        System.out.println(BLUE+"order table successfully confirmed"+RESET);
+    }
+
+
 }
